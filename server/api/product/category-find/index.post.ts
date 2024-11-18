@@ -14,6 +14,15 @@ export default defineEventHandler(async (event) => {
     });
   }
 
+  // if category not included
+  if (!Object.hasOwn(body, "category")) {
+    throw createError({
+      statusCode: 417,
+      message: "Category not included",
+      stack: undefined,
+    });
+  }
+
   const header = headerSettings("GET", config, event);
   let urlRequest = null;
   if (body.request) {
@@ -29,7 +38,7 @@ export default defineEventHandler(async (event) => {
       });
     }
     urlRequest = buildUrl(
-      `${config.public.apiHostUrl}/products`,
+      `${config.public.apiHostUrl}/products/category/${body.category}`,
       objectUrlRequest
     );
   } else {

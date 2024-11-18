@@ -2,6 +2,7 @@ declare global {
   type requestType = "product" | "category";
   interface InfRequestPaginationClient {
     type: requestType; //product, category,
+    category?: string;
     request: InfRequestStandard;
   }
   interface InfRequestStandard {
