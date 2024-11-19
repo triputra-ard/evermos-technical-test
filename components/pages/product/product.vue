@@ -60,7 +60,10 @@
       <div class="d-flex flex-row flex-wrap">
         <template v-for="item in productStore.getProductList">
           <column class="p-2" cols="12" xs="6" sm="6" md="6" lg="3">
-            <card class="bg-transparent border-0 product-card">
+            <card
+              class="bg-transparent border-0 product-card"
+              @click="showDetail(item.id)"
+            >
               <card-content>
                 <img
                   class="product-image"
@@ -86,7 +89,7 @@
           next-icon="mdi-chevron-right"
           :total-page="itemPayload.total"
           v-model="itemPayload.page"
-          :total-visible="8"
+          :total-visible="$device.isDesktop ? 8 : 5"
           @update:model-value="handleChangePage"
         ></pagination
       ></column>

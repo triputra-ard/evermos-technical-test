@@ -116,9 +116,6 @@ export default defineComponent({
         this.categoryStore.categoryList = categoryDefine;
       } catch (error) {}
     },
-    updatePage(page: number) {
-      this.requestPayload.request.page = page;
-    },
     handleChangePage() {
       // Simulate pagination
       for (
@@ -190,6 +187,14 @@ export default defineComponent({
           },
         });
       }
+    },
+    showDetail(id: number | string) {
+      this.$router.push({
+        name: "detail-id",
+        params: {
+          id: id,
+        },
+      });
     },
   },
   created() {

@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         // { src: "https://awesome-lib.js" },
       ],
       link: [
-        { rel: "icon", type: "image/x-icon", href: "icons/evermos_icon.ico" },
+        { rel: "icon", type: "image/x-icon", href: "/icons/evermos_icon.ico" },
         // <link rel="stylesheet" href="https://myawesome-lib.css">
         // { rel: "stylesheet", href: "https://awesome-lib.css" },
       ],
