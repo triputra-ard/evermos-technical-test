@@ -139,26 +139,42 @@ export default defineComponent({
         }
       }
       this.productStore.productLoading = true;
-      this.initializeProduct();
+      if (this.page.hasParams) {
+        this.initializeProductByCategory();
+      } else {
+        this.initializeProduct();
+      }
     },
     handleSearch(key: string) {
       if (key.length > 2) {
         this.productStore.productLoading = true;
         this.itemPayload.pageStart = 0;
         this.itemPayload.page = 1;
-        this.initializeProduct();
+        if (this.page.hasParams) {
+          this.initializeProductByCategory();
+        } else {
+          this.initializeProduct();
+        }
       } else if (key.length < 2) {
         this.productStore.productLoading = true;
         this.itemPayload.pageStart = 0;
         this.itemPayload.page = 1;
-        this.initializeProduct();
+        if (this.page.hasParams) {
+          this.initializeProductByCategory();
+        } else {
+          this.initializeProduct();
+        }
       }
     },
-    handleFilter() {
+    handleSort() {
       this.productStore.productLoading = true;
       this.itemPayload.pageStart = 0;
       this.itemPayload.page = 1;
-      this.initializeProduct();
+      if (this.page.hasParams) {
+        this.initializeProductByCategory();
+      } else {
+        this.initializeProduct();
+      }
     },
     handleCategory(categoryValue: string) {
       this.productStore.productLoading = true;
@@ -181,6 +197,9 @@ export default defineComponent({
       this.page.hasParams = true;
       this.page.params = this.$route.params.name;
       this.itemPayload.category = this.$route.params.name;
+    } else {
+      this.page.hasParams = false;
+      this.page.params = null;
     }
   },
   mounted() {

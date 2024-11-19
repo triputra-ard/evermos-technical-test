@@ -49,7 +49,7 @@
               },
             ]"
             aria-placeholder="Order the list"
-            @update:model-value="handleFilter"
+            @update:model-value="handleSort"
           ></form-select>
 
           <icon class="icon-group" icon="mdi-chevron-down"></icon>
