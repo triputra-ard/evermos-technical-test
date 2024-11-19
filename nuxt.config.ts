@@ -45,7 +45,12 @@ export default defineNuxtConfig({
     "@mdi/font/css/materialdesignicons.min.css",
   ],
 
-  modules: ["@pinia/nuxt", "nuxt-svgo", "@nuxtjs/device"],
+  modules: [
+    "@pinia/nuxt",
+    "nuxt-svgo",
+    "@nuxtjs/device",
+    "pinia-plugin-persistedstate/nuxt",
+  ],
   plugins: ["@/plugins/bootstrap.client.ts"],
   vite: {
     css: {

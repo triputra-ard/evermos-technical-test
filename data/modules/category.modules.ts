@@ -1,7 +1,12 @@
 const state = () => ({
   data: "hello world",
+  categoryList: [],
 });
-const getters = {};
+const getters = {
+  getCategoryList: (state) => {
+    return state.categoryList;
+  },
+};
 
 const actions = {};
 

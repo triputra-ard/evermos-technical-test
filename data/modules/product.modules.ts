@@ -1,6 +1,7 @@
 const state = () => ({
   data: "hello world",
   productList: [],
+  productLoading: true,
 });
 const getters = {
   getProductList: (state) => {

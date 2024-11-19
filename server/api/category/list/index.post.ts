@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
     const requestServer = await $fetch(urlRequest, header);
 
     return {
-      data: requestServer.products,
+      data: requestServer,
       success: true,
       message: "Category successfully retrieved",
     } as InfResponseStandard;
