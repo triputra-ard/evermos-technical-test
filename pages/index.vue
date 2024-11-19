@@ -1,5 +1,9 @@
 <template>
-  <section>Page Section</section>
+  <section>
+    <card>
+      <card-content> Page Section </card-content>
+    </card>
+  </section>
 </template>
 
 <script lang="ts" setup>

@@ -36,22 +36,16 @@ export default defineNuxtConfig({
 
   components: [
     { path: "~/components", extensions: ["vue"] },
-    { path: "~/pages", extensions: ["vue"] },
-    { path: "~/ui", extensions: ["vue"] },
+    { path: "~/components/pages", extensions: ["vue"] },
+    { path: "~/components/ui", extensions: ["vue"] },
   ],
   css: [
-    "@/styles/css/tailwind.css",
     "@/styles/css/bootstrap.css",
     "@/styles/scss/main.scss",
     "@mdi/font/css/materialdesignicons.min.css",
   ],
 
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@pinia/nuxt",
-    "nuxt-svgo",
-    "@nuxtjs/device",
-  ],
+  modules: ["@pinia/nuxt", "nuxt-svgo", "@nuxtjs/device"],
 
   vite: {
     css: {
