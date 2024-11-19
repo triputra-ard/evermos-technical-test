@@ -46,7 +46,7 @@ export default defineNuxtConfig({
   ],
 
   modules: ["@pinia/nuxt", "nuxt-svgo", "@nuxtjs/device"],
-
+  plugins: ["@/plugins/bootstrap.client.ts"],
   vite: {
     css: {
       preprocessorOptions: {
