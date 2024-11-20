@@ -67,9 +67,8 @@
             <card
               title="Click/Tap to view detail"
               class="bg-transparent border-0 product-card"
-              @click="showDetail(item.id)"
             >
-              <card-content>
+              <card-content @click="showDetail(item.id)">
                 <img
                   class="product-image"
                   :src="item.thumbnail"
@@ -77,10 +76,28 @@
                 />
                 <div class="product-info">
                   <h5 class="fw-jakarta-bold mb-1">{{ item.title }}</h5>
-                  <p class="mb-1">{{ item.brand }}</p>
+                  <p class="mb-1 d-flex flex-wrap justify-content-between">
+                    {{ item.brand }}
+                    <span class="fw-jakarta-bold"
+                      ><icon class="text-warning" icon="mdi-star"></icon
+                      >{{ item.rating }}
+                      <span class="fw-jakarta-regular"
+                        >({{ item.reviews.length }})</span
+                      ></span
+                    >
+                  </p>
                   <h6 class="fw-jakarta-semibold">$ {{ item.price }}</h6>
                 </div>
               </card-content>
+              <card-footer class="d-grid grid-2 bg-transparent border-0">
+                <button
+                  role="button"
+                  class="btn btn-outline-evermos"
+                  @click="cartStore.addToCart(item)"
+                >
+                  Add to cart
+                </button>
+              </card-footer>
             </card>
           </column>
         </template>

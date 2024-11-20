@@ -50,9 +50,6 @@ export default defineComponent({
         this.requestPayload
       );
     },
-    addToCart() {
-      this.cartStore.cartData.push(this.temporaryData);
-    },
     showDetail(id: number | string) {
       this.productStore.productLoadingSingle = true;
       this.$router.push({
@@ -62,8 +59,10 @@ export default defineComponent({
         },
       });
     },
-    buyNow() {
-      alert("not available");
+    handleBuyNow() {
+      this.$toast.error("Checkout unavailable", {
+        position: "bottom",
+      });
     },
     //Miscellaneous functions
     setActiveImage(activeImage: string, indexImages: number) {

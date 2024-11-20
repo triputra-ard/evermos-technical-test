@@ -160,7 +160,7 @@
                   role="button"
                   aria-labelledby="Button buy now"
                   class="btn btn-outline-evermos no-hover rounded-4"
-                  @click="buyNow"
+                  @click="handleBuyNow"
                 >
                   Buy Now
                 </button></column
@@ -170,7 +170,7 @@
                   role="button"
                   aria-labelledby="Button add to cart"
                   class="btn btn-evermos rounded-4"
-                  @click="addToCart"
+                  @click="cartStore.addToCart(productStore.getProductSingle)"
                 >
                   Add to cart
                 </button></column
