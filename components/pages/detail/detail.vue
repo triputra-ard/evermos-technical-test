@@ -180,7 +180,7 @@
         </div></column
       >
       <column class="mt-5" cols="12">
-        <h3 class="fw-jakarta-bold">Browse more from this category</h3>
+        <h3 class="fw-jakarta-bold p-3">More like this</h3>
         <div class="d-flex flex-row flex-wrap">
           <template v-for="item in productStore.getProductList">
             <column class="p-2" cols="12" xs="6" sm="6" md="6" lg="3">
