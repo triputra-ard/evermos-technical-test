@@ -59,9 +59,13 @@
     </div>
     <template v-if="!productStore.productLoading">
       <div class="d-flex flex-row flex-wrap">
-        <template v-for="item in productStore.getProductList">
+        <template
+          v-if="productStore.getProductList.length > 0"
+          v-for="item in productStore.getProductList"
+        >
           <column class="p-2" cols="12" xs="6" sm="6" md="6" lg="3">
             <card
+              title="Click/Tap to view detail"
               class="bg-transparent border-0 product-card"
               @click="showDetail(item.id)"
             >
@@ -79,6 +83,11 @@
               </card-content>
             </card>
           </column>
+        </template>
+        <template v-else>
+          <column cols="12">
+            <p class="text-center">No products found</p></column
+          >
         </template>
       </div> </template
     ><template v-else>

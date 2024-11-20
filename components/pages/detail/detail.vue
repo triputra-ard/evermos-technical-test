@@ -157,14 +157,21 @@
             <div class="d-flex flex-row flex-wrap cta-wrapper">
               <column class="d-grid grid-2 p-2" cols="12" lg="6">
                 <button
-                  class="btn btn-outline-evermos rounded-4"
-                  @click="addToCart"
+                  role="button"
+                  aria-labelledby="Button buy now"
+                  class="btn btn-outline-evermos no-hover rounded-4"
+                  @click="buyNow"
                 >
                   Buy Now
                 </button></column
               >
               <column class="d-grid grid-2 p-2" cols="12" lg="6">
-                <button class="btn btn-evermos rounded-4" @click="addToCart">
+                <button
+                  role="button"
+                  aria-labelledby="Button add to cart"
+                  class="btn btn-evermos rounded-4"
+                  @click="addToCart"
+                >
                   Add to cart
                 </button></column
               >

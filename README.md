@@ -1,75 +1,55 @@
-# Nuxt Minimal Starter
+# Technical Test : Tri
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Technical test for : Evermos
 
-## Setup
+## Features
 
-Make sure to install dependencies:
+- Responsive
+- SEO
+- Cross platform
 
-```bash
-# npm
-npm install
+## Tech Stack
 
-# pnpm
-pnpm install
+**Client:** NuxtJS, VueJS, Bootstrap
 
-# yarn
-yarn install
+**Server:** Nitro,External API
 
-# bun
-bun install
-```
+## Run Locally
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Clone the project
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+  git clone <gitlab https>
 ```
 
-## Production
-
-Build the application for production:
+Go to the project directory
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+  cd evermos-technical-test
 ```
 
-Locally preview production build:
+Install dependencies
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+  npm install
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Installation
+
+Add .env in your local enviroment
+
+```bash
+  APP_API_URL="https://dummyjson.com"
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+## Demo
+
+<a href="https://evermos-triputra.netlify.app">Demo</a>
+
+<img src="./app_ss.png">

@@ -62,6 +62,9 @@ export default defineComponent({
         },
       });
     },
+    buyNow() {
+      alert("not available");
+    },
     //Miscellaneous functions
     setActiveImage(activeImage: string, indexImages: number) {
       this.image.active.src = activeImage;
