@@ -9,55 +9,53 @@
                 v-if="cartStore.getCartList.length > 0"
                 v-for="item in cartStore.getCartList"
               >
-                <column cols="12">
-                  <div class="cart-item">
-                    <img
-                      class="cart-image"
-                      :src="item.thumbnail"
-                      :alt="`Product thumbnail on cart ${item.title}`"
-                    />
-                    <div class="cart-info">
-                      <h5 class="fw-jakarta-regular">{{ item.title }}</h5>
-                      <p class="cart-price">
-                        ${{ item.price }}
-                        <span class="stock-status">{{
-                          item.availabilityStatus
-                        }}</span>
-                      </p>
-                    </div>
-                    <div class="cart-total">
-                      <h4 class="fw-jakarta-semibold text-end">
-                        ${{ item.total }}
-                      </h4>
-                      <div class="cart-quantity">
-                        <button
-                          role="button"
-                          class="btn"
-                          @click="
-                            cartStore.updateQuantity(item.id, item.quantity - 1)
-                          "
-                        >
-                          <icon icon="mdi-minus"></icon>
-                        </button>
-                        <span>{{ item.quantity }}</span>
-                        <button
-                          role="button"
-                          class="btn"
-                          @click="
-                            cartStore.updateQuantity(item.id, item.quantity + 1)
-                          "
-                        >
-                          <icon icon="mdi-plus"></icon>
-                        </button>
-                      </div>
+                <column class="cart-item" cols="12">
+                  <img
+                    class="cart-image"
+                    :src="item.thumbnail"
+                    :alt="`Product thumbnail on cart ${item.title}`"
+                  />
+                  <div class="cart-info">
+                    <h5 class="fw-jakarta-regular">{{ item.title }}</h5>
+                    <p class="cart-price">
+                      ${{ item.price }}
+                      <span class="stock-status">{{
+                        item.availabilityStatus
+                      }}</span>
+                    </p>
+                  </div>
+                  <div class="cart-total">
+                    <h4 class="fw-jakarta-semibold text-end">
+                      ${{ item.total }}
+                    </h4>
+                    <div class="cart-quantity">
                       <button
                         role="button"
-                        class="btn text-black-50 mt-2"
-                        @click="cartStore.removeFromCart(item.id)"
+                        class="btn"
+                        @click="
+                          cartStore.updateQuantity(item.id, item.quantity - 1)
+                        "
                       >
-                        <icon class="me-1" icon="mdi-delete"></icon> Delete
+                        <icon icon="mdi-minus"></icon>
+                      </button>
+                      <span>{{ item.quantity }}</span>
+                      <button
+                        role="button"
+                        class="btn"
+                        @click="
+                          cartStore.updateQuantity(item.id, item.quantity + 1)
+                        "
+                      >
+                        <icon icon="mdi-plus"></icon>
                       </button>
                     </div>
+                    <button
+                      role="button"
+                      class="btn text-black-50 mt-2"
+                      @click="cartStore.removeFromCart(item.id)"
+                    >
+                      <icon class="me-1" icon="mdi-delete"></icon> Delete
+                    </button>
                   </div>
                 </column> </template
               ><template v-else>
