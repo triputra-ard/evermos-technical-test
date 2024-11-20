@@ -4,7 +4,7 @@
       <column class="p-2 d-grid gap-2" cols="6" lg="2">
         <button
           role="button"
-          class="btn btn-outline-success"
+          class="btn btn-outline-evermos"
           @click="handleCategory(item.slug)"
         >
           {{ item.name }}
@@ -25,25 +25,6 @@ export default defineComponent({
   },
 
   methods: {
-    async getCategory() {
-      try {
-        const requestCategory = await $fetch("/api/category/list", {
-          method: "POST",
-          body: {
-            type: "category",
-          },
-        });
-        const categoryDefine = [
-          {
-            slug: "all",
-            name: "All Categories",
-            url: null,
-          },
-        ];
-        categoryDefine.push(...requestCategory.data);
-        this.categoryStore.categoryList = categoryDefine;
-      } catch (error) {}
-    },
     handleCategory(categoryValue: string) {
       this.productStore.productLoading = true;
       if (categoryValue == "all") {
@@ -61,7 +42,7 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.getCategory();
+    this.categoryStore.fetchCategoryList();
   },
 });
 </script>

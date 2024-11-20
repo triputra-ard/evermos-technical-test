@@ -29,6 +29,7 @@ export default defineNuxtConfig({
       ],
     },
     // baseURL: "/your-site-route",
+    pageTransition: { name: "fade", mode: "out-in" },
   },
   experimental: {
     componentIslands: false, //for global components

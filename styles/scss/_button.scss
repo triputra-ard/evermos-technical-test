@@ -1,0 +1,10 @@
+.btn {
+  &.btn-outline-evermos {
+    border-color: var(--evermos-green-dark);
+    color: var(--evermos-green-dark);
+    &:hover {
+      background-color: var(--evermos-green-dark);
+      color: var(--evermos-green);
+    }
+  }
+}

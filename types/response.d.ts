@@ -5,7 +5,7 @@ declare global {
     perPage: number;
     page: number;
     order: string;
-    sortBy: string;
+    sortBy?: string;
   }
   interface InfResponseStandard {
     data: any[] | object;

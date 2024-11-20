@@ -8,7 +8,27 @@ const getters = {
   },
 };
 
-const actions = {};
+const actions = {
+  async fetchCategoryList() {
+    try {
+      const requestCategory = await $fetch("/api/category/list", {
+        method: "POST",
+        body: {
+          type: "category",
+        },
+      });
+      const categoryDefine = [
+        {
+          slug: "all",
+          name: "All Categories",
+          url: null,
+        },
+      ];
+      categoryDefine.push(...requestCategory.data);
+      this.categoryList = categoryDefine;
+    } catch (error) {}
+  },
+};
 
 export const categoryData = defineStore("category-store", {
   state,

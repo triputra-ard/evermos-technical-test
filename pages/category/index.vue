@@ -12,3 +12,8 @@
     <Category />
   </section>
 </template>
+<script lang="ts" setup>
+useHead({
+  title: "Evermos Store - Shop by Category",
+});
+</script>

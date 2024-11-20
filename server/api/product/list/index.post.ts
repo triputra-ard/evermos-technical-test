@@ -20,9 +20,13 @@ export default defineEventHandler(async (event) => {
     const objectUrlRequest: InfRequestPaginationServer = {
       limit: body.request.perPage,
       skip: body.request.pageStart,
-      sortBy: body.request.sortBy,
       order: body.request.order,
     };
+    if (Object.hasOwn(body.request, "sortBy")) {
+      Object.assign(objectUrlRequest, {
+        sortBy: body.request.sortBy,
+      });
+    }
     if (Object.hasOwn(body.request, "search")) {
       Object.assign(objectUrlRequest, {
         q: body.request.search,
@@ -56,7 +60,6 @@ export default defineEventHandler(async (event) => {
         pageStart: requestServer.skip,
         perPage: requestServer.limit,
         page: body.request.page,
-        sortBy: body.request.sortBy,
         order: body.request.order,
       },
     } as InfResponseStandard;

@@ -19,7 +19,6 @@ export default defineComponent({
       perPage: 20,
       page: 1,
       pageStart: 0,
-      sortBy: "title",
       order: "desc",
       search: "",
       category: "all",
@@ -33,7 +32,6 @@ export default defineComponent({
           perPage: this.itemPayload.perPage,
           page: this.itemPayload.page,
           pageStart: this.itemPayload.pageStart,
-          sortBy: "title",
           order: this.itemPayload.order,
         },
       };
@@ -55,19 +53,13 @@ export default defineComponent({
   methods: {
     async initializeProduct() {
       try {
-        const request = await $fetch("/api/product/list", {
-          method: "POST",
-          body: this.requestPayload,
-        });
-
-        this.productStore.productList = request.data;
-        this.itemPayload.total = request?.pagination.total;
-        this.itemPayload.pageStart = request?.pagination.pageStart;
-        this.itemPayload.page = request?.pagination.page;
-        this.itemPayload.order = request?.pagination.order;
-        setTimeout(() => {
-          this.productStore.productLoading = false;
-        }, 500);
+        const response = await this.productStore.fetchProductList(
+          this.requestPayload
+        );
+        this.itemPayload.total = response.total;
+        this.itemPayload.pageStart = response.pageStart;
+        this.itemPayload.page = response.page;
+        this.itemPayload.order = response.order;
       } catch (error) {
         console.log(error);
         setTimeout(() => {
@@ -77,44 +69,19 @@ export default defineComponent({
     },
     async initializeProductByCategory() {
       try {
-        const request = await $fetch("/api/product/category-find", {
-          method: "POST",
-          body: this.requestPayload,
-        });
-
-        this.productStore.productList = request.data;
-        this.itemPayload.total = request?.pagination.total;
-        this.itemPayload.pageStart = request?.pagination.pageStart;
-        this.itemPayload.page = request?.pagination.page;
-        this.itemPayload.order = request?.pagination.order;
-        setTimeout(() => {
-          this.productStore.productLoading = false;
-        }, 500);
+        const response = await this.productStore.fetchProductByCategory(
+          this.requestPayload
+        );
+        this.itemPayload.total = response.total;
+        this.itemPayload.pageStart = response.pageStart;
+        this.itemPayload.page = response.page;
+        this.itemPayload.order = response.order;
       } catch (error) {
         console.log(error);
         setTimeout(() => {
           this.productStore.productLoading = false;
         }, 500);
       }
-    },
-    async getCategory() {
-      try {
-        const requestCategory = await $fetch("/api/category/list", {
-          method: "POST",
-          body: {
-            type: "category",
-          },
-        });
-        const categoryDefine = [
-          {
-            slug: "all",
-            name: "All Categories",
-            url: null,
-          },
-        ];
-        categoryDefine.push(...requestCategory.data);
-        this.categoryStore.categoryList = categoryDefine;
-      } catch (error) {}
     },
     handleChangePage() {
       // Simulate pagination
@@ -208,7 +175,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.getCategory();
+    this.categoryStore.fetchCategoryList();
     if (this.page.hasParams) {
       this.initializeProductByCategory();
     } else {

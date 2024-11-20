@@ -2,10 +2,12 @@
   <div class="mt-5">
     <div class="d-flex flex-wrap flex-row mb-5">
       <column class="p-2" cols="12" lg="5">
-        <div class="form-wrapper input">
-          <label class="form-label" aria-labelledby="Search input"
-            >Search</label
-          >
+        <form-wrapper
+          class="input"
+          icon="mdi-magnify"
+          label="Search"
+          aria-labelledby="Search input"
+        >
           <input
             v-model="itemPayload.search"
             type="text"
@@ -14,14 +16,14 @@
             aria-placeholder="Search for product"
             @update:model-value="handleSearch"
           />
-          <icon class="icon-group" icon="mdi-magnify"></icon>
-        </div>
+        </form-wrapper>
       </column>
       <column class="p-2" cols="12" lg="3">
-        <div class="form-wrapper">
-          <label class="form-label" aria-labelledby="Order by category"
-            >Category</label
-          >
+        <form-wrapper
+          icon="mdi-chevron-down"
+          label="Category"
+          aria-labelledby="Order by category"
+        >
           <form-select
             v-model="itemPayload.category"
             :items="categoryStore.getCategoryList"
@@ -29,14 +31,15 @@
             item-title="name"
             aria-placeholder="Select the category"
             @update:model-value="handleCategory"
-          ></form-select>
-          <icon class="icon-group" icon="mdi-chevron-down"></icon>
-        </div>
+          ></form-select
+        ></form-wrapper>
       </column>
       <column class="p-2 ms-lg-auto" cols="12" lg="2">
-        <div class="form-wrapper">
-          <label class="form-label" aria-labelledby="Sort product">Sort</label>
-          <form-select
+        <form-wrapper
+          icon="mdi-chevron-down"
+          label="Sort"
+          aria-labelledby="Sort product"
+          ><form-select
             v-model="itemPayload.order"
             :items="[
               {
@@ -51,9 +54,7 @@
             aria-placeholder="Order the list"
             @update:model-value="handleSort"
           ></form-select>
-
-          <icon class="icon-group" icon="mdi-chevron-down"></icon>
-        </div>
+        </form-wrapper>
       </column>
     </div>
     <template v-if="!productStore.productLoading">
@@ -71,8 +72,9 @@
                   :alt="`Product ${item.title} image`"
                 />
                 <div class="product-info">
-                  <h5 class="fw-jakarta-bold">{{ item.title }}</h5>
-                  <p>$ {{ item.price }}</p>
+                  <h5 class="fw-jakarta-bold mb-1">{{ item.title }}</h5>
+                  <p class="mb-1">{{ item.brand }}</p>
+                  <h6 class="fw-jakarta-semibold">$ {{ item.price }}</h6>
                 </div>
               </card-content>
             </card>
