@@ -5,9 +5,10 @@
 @import "form";
 @import "loading";
 @import "button";
-
+@import "tabs";
+@import "card";
 body {
-  background-color: var(--gray-10);
+  background-color: var(--gray-10) !important;
   height: 100vh;
   .page-wrapper {
     position: relative;
@@ -18,4 +19,7 @@ body {
 }
 :where(html, body, h1, h2, h3, h4, h5, h6, span, label) {
   font-family: "Plus Jakarta Sans", sans-serif !important;
+}
+.v-toast {
+  z-index: 12500 !important;
 }

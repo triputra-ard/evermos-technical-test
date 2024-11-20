@@ -1,12 +1,12 @@
 export default defineComponent({
   setup() {
-    const nuxtApp = useNuxtApp();
     const productStore = productData();
     const categoryStore = categoryData();
+    const cartStore = cartData();
     return {
       productStore,
       categoryStore,
-      nuxtApp,
+      cartStore,
     };
   },
   data: () => ({

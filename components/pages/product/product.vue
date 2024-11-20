@@ -59,26 +59,52 @@
     </div>
     <template v-if="!productStore.productLoading">
       <div class="d-flex flex-row flex-wrap">
-        <template v-for="item in productStore.getProductList">
+        <template
+          v-if="productStore.getProductList.length > 0"
+          v-for="item in productStore.getProductList"
+        >
           <column class="p-2" cols="12" xs="6" sm="6" md="6" lg="3">
             <card
+              title="Click/Tap to view detail"
               class="bg-transparent border-0 product-card"
-              @click="showDetail(item.id)"
             >
-              <card-content>
+              <card-content @click="showDetail(item.id)">
                 <img
                   class="product-image"
-                  :src="item.images[0]"
+                  :src="item.thumbnail"
                   :alt="`Product ${item.title} image`"
                 />
                 <div class="product-info">
                   <h5 class="fw-jakarta-bold mb-1">{{ item.title }}</h5>
-                  <p class="mb-1">{{ item.brand }}</p>
+                  <p class="mb-1 d-flex flex-wrap justify-content-between">
+                    {{ item.brand }}
+                    <span class="fw-jakarta-bold"
+                      ><icon class="text-warning" icon="mdi-star"></icon
+                      >{{ item.rating }}
+                      <span class="fw-jakarta-regular"
+                        >({{ item.reviews.length }})</span
+                      ></span
+                    >
+                  </p>
                   <h6 class="fw-jakarta-semibold">$ {{ item.price }}</h6>
                 </div>
               </card-content>
+              <card-footer class="d-grid grid-2 bg-transparent border-0">
+                <button
+                  role="button"
+                  class="btn btn-outline-evermos"
+                  @click="cartStore.addToCart(item)"
+                >
+                  Add to cart
+                </button>
+              </card-footer>
             </card>
           </column>
+        </template>
+        <template v-else>
+          <column cols="12">
+            <p class="text-center">No products found</p></column
+          >
         </template>
       </div> </template
     ><template v-else>
@@ -99,4 +125,3 @@
   </div>
 </template>
 <script lang="ts" src="./product.ts"></script>
-<style lang="scss" src="./product.scss"></style>

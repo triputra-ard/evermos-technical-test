@@ -31,10 +31,10 @@
       </ol>
       <ol class="navbar-action">
         <li>
-          <a href="javascript:void(0)" class="nav-link">
+          <nuxt-link to="/cart" class="nav-link">
             <icon class="h5" icon="mdi-shopping-outline"></icon>
-            <span class="ms-2">0</span>
-          </a>
+            <span class="ms-2">{{ cartStore.getCartLength }}</span>
+          </nuxt-link>
         </li>
       </ol>
     </nav>
@@ -42,6 +42,12 @@
 </template>
 <script lang="ts">
 export default defineComponent({
+  setup() {
+    const cartStore = cartData();
+    return {
+      cartStore,
+    };
+  },
   data: () => ({
     toggleIcon: "mdi-menu",
   }),

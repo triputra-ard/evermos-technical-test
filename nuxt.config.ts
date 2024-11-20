@@ -52,7 +52,7 @@ export default defineNuxtConfig({
     "@nuxtjs/device",
     "pinia-plugin-persistedstate/nuxt",
   ],
-  plugins: ["@/plugins/bootstrap.client.ts"],
+  plugins: ["@/plugins/bootstrap.client.ts", "@/plugins/v-toast.client.ts"],
   vite: {
     css: {
       preprocessorOptions: {

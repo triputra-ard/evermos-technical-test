@@ -26,9 +26,12 @@
         display: flex;
         flex-wrap: wrap;
         list-style: none;
-        margin-top: 0.8rem;
+        margin-top: 0.7rem;
         padding-left: 0;
         margin-bottom: 0;
+      }
+      .navbar-list {
+        margin-right: calc(18% - 5rem);
         .nav-link {
           padding-bottom: 0.4rem;
           transition: all 0.4s ease-in-out;
@@ -38,14 +41,22 @@
             transition: all 0.2s ease-in-out;
           }
         }
-      }
-      .navbar-list {
-        margin-right: calc(15% - 5rem);
         li {
           margin-right: 2rem;
         }
       }
       .navbar-action {
+        .nav-link {
+          transition: all 0.4s ease-in-out;
+          &.router-link-active {
+            .mdi,
+            span {
+              font-weight: $bold-font;
+              color: var(--evermos-green-dark);
+              transition: all 0.2s ease-in-out;
+            }
+          }
+        }
         li {
           margin-right: 1rem;
         }
@@ -57,7 +68,7 @@
     padding: 0.5rem 2.5rem;
     transition: all 0.3s ease-in-out;
     .navigation-wrapper {
-      :where(.navbar-list, .navbar-action) {
+      .navbar-list {
         .nav-link {
           &.router-link-active {
             border-bottom: 2px solid var(--evermos-green);
@@ -88,7 +99,7 @@
           transition: all 0.5s ease-in-out;
           .nav-link {
             &.router-link-active {
-              border-bottom: unset;
+              border-bottom: unset !important;
             }
           }
         }
