@@ -99,7 +99,7 @@
           transition: all 0.5s ease-in-out;
           .nav-link {
             &.router-link-active {
-              border-bottom: unset;
+              border-bottom: unset !important;
             }
           }
         }
