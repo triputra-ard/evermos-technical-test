@@ -1,6 +1,3 @@
-import { defineStore } from 'pinia';
-export const useAppStore = defineStore('counter', {
-	state: () => ({ count: 0, name: 'Logica' }),
-	getters: {},
-	actions: {}
-});
+export * from "./modules/category.modules";
+export * from "./modules/product.modules";
+export * from "./modules/cart.modules";

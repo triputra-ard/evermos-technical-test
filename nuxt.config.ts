@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         // { src: "https://awesome-lib.js" },
       ],
       link: [
-        { rel: "icon", type: "image/x-icon", href: "icons/evermos_icon.ico" },
+        { rel: "icon", type: "image/x-icon", href: "/icons/evermos_icon.ico" },
         // <link rel="stylesheet" href="https://myawesome-lib.css">
         // { rel: "stylesheet", href: "https://awesome-lib.css" },
       ],
@@ -29,6 +29,7 @@ export default defineNuxtConfig({
       ],
     },
     // baseURL: "/your-site-route",
+    pageTransition: { name: "fade", mode: "out-in" },
   },
   experimental: {
     componentIslands: false, //for global components
@@ -36,23 +37,22 @@ export default defineNuxtConfig({
 
   components: [
     { path: "~/components", extensions: ["vue"] },
-    { path: "~/pages", extensions: ["vue"] },
-    { path: "~/ui", extensions: ["vue"] },
+    { path: "~/components/pages", extensions: ["vue"] },
+    { path: "~/components/ui", extensions: ["vue"] },
   ],
   css: [
-    "@/styles/css/tailwind.css",
     "@/styles/css/bootstrap.css",
     "@/styles/scss/main.scss",
     "@mdi/font/css/materialdesignicons.min.css",
   ],
 
   modules: [
-    "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "nuxt-svgo",
     "@nuxtjs/device",
+    "pinia-plugin-persistedstate/nuxt",
   ],
-
+  plugins: ["@/plugins/bootstrap.client.ts"],
   vite: {
     css: {
       preprocessorOptions: {

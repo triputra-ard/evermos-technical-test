@@ -1,0 +1,144 @@
+.navbar {
+  &.main-navbar {
+    position: fixed;
+    width: 100%;
+    background-color: var(--gray-10);
+    z-index: 100;
+    padding: 1rem 2.5rem;
+    transition: all 0.3s ease-in-out;
+    .navigation-wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      .navbar-brand {
+        color: var(--pure-black);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .brand-logo {
+          width: auto;
+          height: 2.5rem;
+        }
+      }
+      :where(.navbar-list, .navbar-action) {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin-top: 0.8rem;
+        padding-left: 0;
+        margin-bottom: 0;
+        .nav-link {
+          padding-bottom: 0.4rem;
+          transition: all 0.4s ease-in-out;
+          &.router-link-active {
+            font-weight: $bold-font;
+            border-bottom: 2px solid var(--evermos-green-dark);
+            transition: all 0.2s ease-in-out;
+          }
+        }
+      }
+      .navbar-list {
+        margin-right: calc(15% - 5rem);
+        li {
+          margin-right: 2rem;
+        }
+      }
+      .navbar-action {
+        li {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+  &[data-scroll="on-scroll"] {
+    background-color: var(--gray-20);
+    padding: 0.5rem 2.5rem;
+    transition: all 0.3s ease-in-out;
+    .navigation-wrapper {
+      :where(.navbar-list, .navbar-action) {
+        .nav-link {
+          &.router-link-active {
+            border-bottom: 2px solid var(--evermos-green);
+          }
+        }
+      }
+    }
+  }
+  .navbar-toggler {
+    display: none;
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  .navbar {
+    &.main-navbar {
+      .navigation-wrapper {
+        :where(.navbar-list, .navbar-action) {
+          padding: 2rem;
+          position: fixed;
+          flex-direction: column;
+          left: 100vh;
+          background-color: var(--gray-10);
+          width: 100%;
+          transition: all 0.5s ease-in-out;
+          .nav-link {
+            &.router-link-active {
+              border-bottom: unset;
+            }
+          }
+        }
+        .navbar-list {
+          top: 5rem;
+          transition: all 0.2s ease-in-out;
+        }
+        .navbar-action {
+          top: 14rem;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+      &.show {
+        .navigation-wrapper {
+          :where(.navbar-list, .navbar-action) {
+            left: 0;
+            transition: all 0.5s ease-in-out;
+          }
+          .navbar-action {
+            box-shadow: var(--elevation-3);
+          }
+        }
+      }
+      &[data-scroll="on-scroll"] {
+        .navigation-wrapper {
+          :where(.navbar-list, .navbar-action) {
+            background-color: var(--gray-20);
+            transition: all 0.5s ease-in-out;
+          }
+          .navbar-list {
+            top: 3rem;
+            transition: all 0.2s ease-in-out;
+          }
+          .navbar-action {
+            top: 12rem;
+            transition: all 0.2s ease-in-out;
+          }
+        }
+      }
+    }
+    .navbar-toggler {
+      display: block;
+    }
+  }
+}
+
+@media only screen and (max-width: 355px) {
+  .navbar {
+    &.main-navbar {
+      padding: 1rem;
+    }
+  }
+}

@@ -9,7 +9,7 @@ declare global {
     pageStart: number;
     perPage: number;
     page: number;
-    sortBy: string;
+    sortBy?: string;
     order: string;
     search?: string;
   }

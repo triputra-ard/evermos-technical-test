@@ -56,12 +56,12 @@ export default defineEventHandler(async (event) => {
       success: true,
       message: "Product successfully retrieved",
       pagination: {
-        total: requestServer.total,
+        total: Math.ceil(requestServer.total / body.request.perPage),
         pageStart: requestServer.skip,
         perPage: requestServer.limit,
         page: body.request.page,
         sortBy: body.request.sortBy,
-        order: body.request.sortBy,
+        order: body.request.order,
       },
     } as InfResponseStandard;
   } catch (error) {
