@@ -1,5 +1,4 @@
 const state = () => ({
-  data: "hello world",
   categoryList: [],
 });
 const getters = {
@@ -28,10 +27,19 @@ const actions = {
       this.categoryList = categoryDefine;
     } catch (error) {}
   },
+  getCategoryNames(search: string): any {
+    const category = this.categoryList.find((c) => c.slug === search);
+    return category;
+  },
 };
 
+const persist = {
+  pick: ["categoryList"],
+  storage: piniaPluginPersistedstate.localStorage(),
+};
 export const categoryData = defineStore("category-store", {
   state,
   getters,
   actions,
+  persist,
 });

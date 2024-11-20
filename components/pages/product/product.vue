@@ -68,7 +68,7 @@
               <card-content>
                 <img
                   class="product-image"
-                  :src="item.images[0]"
+                  :src="item.thumbnail"
                   :alt="`Product ${item.title} image`"
                 />
                 <div class="product-info">
@@ -99,4 +99,3 @@
   </div>
 </template>
 <script lang="ts" src="./product.ts"></script>
-<style lang="scss" src="./product.scss"></style>

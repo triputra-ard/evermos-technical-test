@@ -7,4 +7,14 @@
       color: var(--evermos-green);
     }
   }
+  &.btn-evermos {
+    border-color: var(--evermos-green-dark);
+    background-color: var(--evermos-green-dark);
+    color: var(--evermos-green);
+    &:hover {
+      background-color: var(--evermos-green);
+      border-color: var(--evermos-green);
+      color: var(--evermos-green-dark);
+    }
+  }
 }

@@ -5,9 +5,10 @@
 @import "form";
 @import "loading";
 @import "button";
-
+@import "tabs";
+@import "card";
 body {
-  background-color: var(--gray-10);
+  background-color: var(--gray-10) !important;
   height: 100vh;
   .page-wrapper {
     position: relative;
