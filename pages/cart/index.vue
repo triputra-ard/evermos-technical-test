@@ -4,3 +4,8 @@
     <Cart />
   </section>
 </template>
+<script lang="ts" setup>
+useHead({
+  title: "Evermos Store - Your cart",
+});
+</script>

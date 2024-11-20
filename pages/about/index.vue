@@ -16,3 +16,8 @@
     </card>
   </section>
 </template>
+<script lang="ts" setup>
+useHead({
+  title: "Evermos Store - About",
+});
+</script>

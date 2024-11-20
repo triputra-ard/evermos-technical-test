@@ -85,5 +85,8 @@ export default defineComponent({
     await this.fetchProductInformation(this.$route.params.id);
     await this.fetchProductByCategory();
     await this.startImageLoop(this.productStore.getProductSingle.images, 0);
+    await useHead({
+      title: `Evermos Store - ${this.productStore.getProductSingle.title}`,
+    });
   },
 });
